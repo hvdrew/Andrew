@@ -1,5 +1,12 @@
 extends ./common/layout.pug
 
+block head
+    script(src="public/form.js")
+
 block content
-    h1 Contact Page!
-    h2 Boop beep bop
+    h1 Contact Page
+
+    form#form(action="/form/submit", method="post")
+        input(type="text", name="Name", placeholder="Your Name")
+        input(type="text", name="Email", placeholder="Your Email")
+        input(type="submit", name="Name", value="Submit")
