@@ -12,6 +12,10 @@
       "views/",
       "dist/"
     ],
+    "events": {
+      "start": "clear",
+      "restart": "clear"
+    },
     "env": {
       "NODE_ENV": "development"
     },

@@ -1,19 +1,11 @@
-import * as express from 'express'
-import * as morgan from 'morgan'
-import * as bodyParser from 'body-parser'
-import { envSettings } from './config'
-// import * as mongoose from 'mongoose'
+import { app } from './server';
+import { envSettings } from './lib/config';
+import { log } from './lib/console-logger';
 
-const PORT = envSettings.port
-const app = express()
+// TODO: Add types to this file
 
-app.use(morgan('dev'))
-app.set('view engine', 'pug')
-app.use(bodyParser.json())
-app.use('/public', express.static('public'))
+const PORT:number = envSettings.port;
 
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Home | Merison.io' })
-})
-
-app.listen(PORT, () => console.log(`Listening on port ${PORT} in ${envSettings.name} mode.`))
+app.listen(PORT, () => {
+    console.log(log.success(`Listening on port ${PORT} in ${envSettings.name} mode.`));
+});
