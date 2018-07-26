@@ -12,7 +12,8 @@ const log = {
     america: colors.america
 };
 
-// TESTS FOR CONSOLE LOG COLORS
+// Uncomment below and run the file to see the chosen colors in action:
+
 // console.log(log.error('Connection failed.'))
 // console.log(log.success('Connected successfully.'))
 // console.log(log.good('An order has been placed.'))

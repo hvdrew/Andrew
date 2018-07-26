@@ -3,7 +3,9 @@ environments:
     name: 'development'
     port: 3000
     dburl: 'mongodb://localhost:27017'
+    morganPreset: 'dev'
   production:
     name: 'production'
     port: 8080
     dburl: 'YOUR_PRODUCTION_DB_URL'
+    morganPreset: 'tiny'

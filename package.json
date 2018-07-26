@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc && nodemon dist",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "start": "clear && node dist",
+    "start:production": "clear && NODE_ENV=production node dist"
   },
   "author": "Andrew <andrew.merison@gmail.com>",
   "license": "MIT",
