@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc && nodemon dist",
-    "watch": "tsc --watch",
     "start": "clear && node dist",
-    "start:production": "clear && NODE_ENV=production node dist"
+    "start:production": "clear && NODE_ENV=production node dist",
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsc && nodemon dist"
   },
   "author": "Andrew <andrew.merison@gmail.com>",
   "license": "MIT",
