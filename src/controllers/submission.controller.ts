@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { DB } from '../lib/db-util';
 import { log } from '../lib/console-logger';
+import { validateEmail } from '../lib/validation';
 const submissionRouter: Router = Router();
 
 /* ROUTES */
@@ -13,13 +14,18 @@ submissionRouter.post('/submit', (req, res) => {
 		
 		// Check if the honeypot caught a bot
 		if (req.body.bot === false) {
-			// Attempt to save the submission data
-			DB.saveFormSubmission({
-				firstname: req.body.firstname,
-				lastname: req.body.lastname,
-				email: req.body.email,
-				message: req.body.message
-			});
+			if (validateEmail(req.body.email)) {
+				// Attempt to save the submission data
+				DB.saveFormSubmission({
+					firstname: req.body.firstname,
+					lastname: req.body.lastname,
+					email: req.body.email,
+					message: req.body.message
+				});
+			} else {
+				console.log('Provided email was not valid.');
+			}
+
 		} else {
 			console.log(log.silly('BOT SUBMISSION BLOCKED'));
 		}
